@@ -1,5 +1,5 @@
 .popup__submit-btn {
-  color: #FFF;
+  color: #fff;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 568px) {
   .popup__submit-btn {
-	  font-size: 14px;
+    font-size: 14px;
     line-height: 17px;
     padding-bottom: 14px;
   }
