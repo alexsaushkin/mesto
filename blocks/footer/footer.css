@@ -1,13 +1,13 @@
 .footer {
-    font-family: 'Inter', Arial, sans-serif;
-    color: #545454;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 67px 0 0;
+  color: #545454;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 67px 0 0;
 }
 
 @media screen and (max-width: 984px) {
-    .footer {
-        padding: 48px 19px 0;
-    }
+  .footer {
+    padding-top: 48px;
+    padding-left: 19px;
   }
+}
