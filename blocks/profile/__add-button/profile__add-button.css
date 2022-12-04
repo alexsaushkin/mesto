@@ -7,7 +7,6 @@
     background-image: url('../../../images/plus.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
     background-size: 22px;
     transition: opacity 0.3s ease-in;
 }
