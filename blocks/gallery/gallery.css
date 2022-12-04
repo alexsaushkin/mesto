@@ -10,13 +10,13 @@
 }
 
 @media screen and (max-width: 767px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .gallery {
+      grid-template-columns: repeat(2, 1fr);
   }
-  
-  @media screen and (max-width: 568px) {
-    .gallery {
-        grid-template-columns: repeat(1, 1fr);
-    }
+}
+
+@media screen and (max-width: 568px) {
+  .gallery {
+      grid-template-columns: repeat(1, 1fr);
   }
+}
