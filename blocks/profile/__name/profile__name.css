@@ -1,6 +1,7 @@
 .profile__name {
-  position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
 }
 
 @media screen and (max-width: 767px) {

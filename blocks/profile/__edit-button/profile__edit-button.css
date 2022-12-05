@@ -11,9 +11,6 @@
   cursor: pointer;
   box-sizing: border-box;
   padding: 0;
-  position: absolute;
-  right: -42px;
-  top: 15px;
 }
 
 .profile__edit-button:hover {
@@ -25,7 +22,5 @@
     min-width: 18px;
     height: 18px;
     background-size: 8px;
-    right: -28px;
-    top: 8px;
   }
 }
