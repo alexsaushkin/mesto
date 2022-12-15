@@ -25,68 +25,34 @@
             </div>
             <button class="profile__add-button" type="button"></button>
         </section>
-        <section class="gallery">
-            <article class="gallery__element" aria-label="Карачаевск">
-                <img class="gallery__photo" src="./images/Карачаевск.jpg" alt="Карачаевск">
-                <div class="gallery__info">
-                    <h2 class="gallery__title">Карачаевск</h2>
-                    <button class="gallery__like" type="button"></button>
-                </div>
-            </article>
-            <article class="gallery__element" aria-label="Гора Эльбрус">
-                <img class="gallery__photo" src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус">
-                <div class="gallery__info">
-                    <h2 class="gallery__title">Гора Эльбрус</h2>
-                    <button class="gallery__like" type="button"></button>
-                </div>
-            </article>
-            <article class="gallery__element" aria-label="Домбай">
-                <img class="gallery__photo" src="./images/Домбай.jpg" alt="Домбай">
-                <div class="gallery__info">
-                    <h2 class="gallery__title">Домбай</h2>
-                    <button class="gallery__like" type="button"></button>
-                </div>
-            </article>
-            <article class="gallery__element" aria-label="Остров Врангеля">
-                <img class="gallery__photo" src="./images/остров_Врангеля_на_Чукотке.jpg" alt="Остров Врангеля">
-                <div class="gallery__info">
-                    <h2 class="gallery__title">Остров Врангеля на Чукотке</h2>
-                    <button class="gallery__like" type="button"></button>
-                </div>
-            </article>
-            <article class="gallery__element" aria-label="Плато Путорана">
-                <img class="gallery__photo" src="./images/плато_Путорана_на_Таймыре.jpg" alt="Плато Путорана">
-                <div class="gallery__info">
-                    <h2 class="gallery__title">Плато Путорана на Таймыре</h2>
-                    <button class="gallery__like" type="button"></button>
-                </div>
-            </article>
-            <article class="gallery__element" aria-label="Ленские столбы">
-                <img class="gallery__photo" src="./images/Ленские_столбы_в_Якутии.jpg" alt="Ленские столбы">
-                <div class="gallery__info">
-                    <h2 class="gallery__title">Ленские столбы в Якутии</h2>
-                    <button class="gallery__like" type="button"></button>
-                </div>
-            </article>
-        </section>
+        <section class="gallery"></section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
     </footer>
-    <section class="popup">
-      <div class="popup__container">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="edit-profile">
-            <div class="popup__input">
-                <input type="text" name="name" placeholder="Имя" class="popup__text popup__text_type_name">
-                <input type="text" name="about" placeholder="О себе" class="popup__text popup__text_type_profession">
-                <button class="popup__submit-btn" type="submit">
-                    Сохранить
-                </button>
+    <template id="gallery-element">
+        <article class="gallery__element">
+            <img class="gallery__photo">
+            <div class="gallery__info">
+                <h2 class="gallery__title"></h2>
+                <button class="gallery__like" type="button"></button>
             </div>
-        </form>
-        <button class="popup__close-btn" type="button"></button>
-      </div>
+        </article>
+    </template>
+    <section class="popup">
+        <div class="popup__container">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <form class="popup__form" name="edit-profile">
+                <div class="popup__input">
+                    <input type="text" name="name" placeholder="Имя" class="popup__text popup__text_type_name">
+                    <input type="text" name="about" placeholder="О себе" class="popup__text popup__text_type_profession">
+                    <button class="popup__submit-btn" type="submit">
+                        Сохранить
+                    </button>
+                </div>
+            </form>
+            <button class="popup__close-btn" type="button"></button>
+        </div>
     </section>
     <script src="./scripts/index.js"></script>
 </body>
