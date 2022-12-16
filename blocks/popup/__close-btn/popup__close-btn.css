@@ -1,5 +1,5 @@
 .popup__close-btn {
-  width: 32px;
+  min-width: 32px;
   height: 32px;
   border: 0;
   transition: opacity 0.3s ease-in;
@@ -11,7 +11,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
   .popup__close-btn {
     width: 20px;
     height: 20px;
-    right: 0px;
+    right: 0;
     top: -36px;
   }
 }

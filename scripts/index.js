@@ -28,10 +28,17 @@ const initialCards = [
 const cardTemplate = document.querySelector('#gallery-element').content;
 const gallery = document.querySelector('.gallery');
 
-initialCards.forEach(function (item) {
-    const card = createCard(item.name, item.link);
-    addCard(card, gallery);
-});
+function addCard(element, gallery) {
+    gallery.append(element);
+}
+
+function likeCard(element) {
+    element.target.classList.toggle('gallery__like_active');
+}
+
+function deleteCard(element) {
+    element.target.closest('.gallery__element').remove();
+}
 
 function createCard(name, link) {
     // клонируем содержимое тега template для карточки
@@ -39,18 +46,24 @@ function createCard(name, link) {
 
     // наполняем содержимым
     const cardPhotoElement = cardElement.querySelector('.gallery__photo');
+    const cardLikeBtn = cardElement.querySelector('.gallery__like');
+    const cardDeleteBtn = cardElement.querySelector('.gallery__delete');
+
     cardPhotoElement.src = link;
     cardPhotoElement.alt = name;
     cardElement.ariaLabel = name;
     cardElement.querySelector('.gallery__title').textContent = name;
+
+    cardLikeBtn.addEventListener('click', likeCard);
+    cardDeleteBtn.addEventListener('click', deleteCard);
+
     return cardElement;
 }
 
-function addCard(element, gallery) {
-    // отображаем на странице
-    gallery.append(element);
-}
-
+initialCards.forEach(function (item) {
+    const card = createCard(item.name, item.link);
+    addCard(card, gallery);
+});
 
 let profileInfo = document.querySelector('.profile__info');
 let profileEditBtn = profileInfo.querySelector('.profile__edit-button');
