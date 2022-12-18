@@ -19,6 +19,7 @@
 @import url('../blocks/profile/__profession/profile__profession.css');
 
 @import url('../blocks/gallery/gallery.css');
+@import url('../blocks/gallery/__items/gallery__items.css');
 @import url('../blocks/gallery/__element/gallery__element.css');
 @import url('../blocks/gallery/__photo/gallery__photo.css');
 @import url('../blocks/gallery/__delete/gallery__delete.css');
