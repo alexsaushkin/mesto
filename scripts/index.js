@@ -70,19 +70,27 @@ function findOpenedPopup() {
   return document.querySelector('.popup_opened');
 }
 
+function closeOpenedPopup() {
+  const popupOpened = findOpenedPopup();
+  if (popupOpened) {
+    closePopup(popupOpened);
+  }
+  return popupOpened;
+}
+
 function closePopupEsc(evt) {
   if (evt.key === "Escape") {
-    const popupOpened = findOpenedPopup();
-    closePopup(popupOpened);
+    closeOpenedPopup();
     document.removeEventListener('keydown', closePopupEsc);
   }
 }
 
 function closePopupOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    const popupOpened = findOpenedPopup();
-    closePopup(popupOpened);
-    popupOpened.removeEventListener('click', closePopupOverlay);
+    const closedPopup = closeOpenedPopup();
+    if (closedPopup) {
+      closedPopup.removeEventListener('click', closePopupOverlay);
+    }
   }
 }
 
@@ -100,10 +108,6 @@ function openPopup(popup) {
   popup.classList.add("popup_opened");
   handleEscClose();
   handleOverlayClose();
-  // валидация после открытия попапа
-  const inputList = Array.from(popup.querySelectorAll(settingsObj.inputSelector));
-  const buttonElement = popup.querySelector(settingsObj.submitButtonSelector);
-  toggleButtonState(settingsObj, inputList, buttonElement);
 }
 
 function updateProfile(name, profession) {
@@ -120,6 +124,7 @@ function submitProfileForm(evt) {
 function openProfilePopup() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileProfession.textContent;
+  validateFormPopup(profilePopup);
   openPopup(profilePopup);
 }
 
@@ -150,6 +155,7 @@ function createCard(name, link) {
 function openCardPopup() {
   titleInput.value = "";
   linkInput.value = "";
+  validateFormPopup(cardPopup);
   openPopup(cardPopup);
 }
 
