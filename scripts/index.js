@@ -62,12 +62,44 @@ function deleteCard(element) {
   element.target.closest(".gallery__element").remove();
 }
 
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-}
-
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+}
+
+function findOpenedPopup() {
+  return document.querySelector('.popup_opened');
+}
+
+function closePopupEsc(evt) {
+  if (evt.key === "Escape") {
+    const popupOpened = findOpenedPopup();
+    closePopup(popupOpened);
+    document.removeEventListener('keydown', closePopupEsc);
+  }
+}
+
+function closePopupOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    const popupOpened = findOpenedPopup();
+    closePopup(popupOpened);
+    popupOpened.removeEventListener('click', closePopupOverlay);
+  }
+}
+
+function handleEscClose() {
+  document.addEventListener('keydown', closePopupEsc);
+}
+
+function handleOverlayClose() {
+  const popupOpened = document.querySelector('.popup_opened');
+  const overlay = popupOpened.closest('.popup');
+  overlay.addEventListener('click', closePopupOverlay)
+}
+
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  handleEscClose();
+  handleOverlayClose();
 }
 
 function updateProfile(name, profession) {

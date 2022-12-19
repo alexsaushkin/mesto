@@ -3,7 +3,7 @@
   box-sizing: border-box;
   padding: 34px 36px 37px;
   width: 430px;
-  height: 330px;
+  min-height: 330px;
   background: #fff;
   border-radius: 10px;
   z-index: 2;

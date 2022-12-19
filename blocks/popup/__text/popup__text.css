@@ -2,13 +2,12 @@
   width: 100%;
   border: 0;
   border-bottom: 1px solid #d3d3d3;
-  padding: 24px 0 0;
   box-sizing: content-box;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  padding-bottom: 13px;
+  padding-bottom: 10px;
 }
 
 .popup__text:focus {
@@ -17,20 +16,4 @@
 
 .popup__text::placeholder {
   color: #d3d3d3;
-}
-.popup__text:first-of-type {
-  padding-top: 44px;
-}
-
-.popup__text:last-of-type {
-  margin-bottom: 48px;
-}
-
-@media screen and (max-width: 568px) {
-  .popup__text:first-of-type {
-    padding-top: 75px;
-  }
-  .popup__text:last-of-type {
-    margin-bottom: 45px;
-  }
 }
