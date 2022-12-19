@@ -7,7 +7,6 @@ const settingsObj = {
   errorClass: 'popup__error_visible'
 };
 
-
 const showInputError = (settingsObj, formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(settingsObj.inputErrorClass);
@@ -56,7 +55,7 @@ const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   })
-}
+};
 
 const toggleButtonState = (settingsObj, inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
@@ -64,6 +63,6 @@ const toggleButtonState = (settingsObj, inputList, buttonElement) => {
   } else {
     buttonElement.classList.remove(settingsObj.inactiveButtonClass);
   }
-}
+};
 
 enableValidation(settingsObj);

@@ -100,6 +100,10 @@ function openPopup(popup) {
   popup.classList.add("popup_opened");
   handleEscClose();
   handleOverlayClose();
+  // валидация после открытия попапа
+  const inputList = Array.from(popup.querySelectorAll(settingsObj.inputSelector));
+  const buttonElement = popup.querySelector(settingsObj.submitButtonSelector);
+  toggleButtonState(settingsObj, inputList, buttonElement);
 }
 
 function updateProfile(name, profession) {
