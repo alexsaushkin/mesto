@@ -1,29 +1,8 @@
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+import { initialCards } from "./data.js";
+import { settingsObj } from "./settings.js";
+import {
+  validateFormPopup
+} from "./validate.js";
 
 // карточка
 const cardTemplateElement = document.querySelector("#gallery-element").content.querySelector(".gallery__element");
@@ -64,6 +43,8 @@ function deleteCard(element) {
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closePopupEsc);
+  popup.removeEventListener('click', closePopupOverlay);
 }
 
 function findOpenedPopup() {
@@ -75,22 +56,17 @@ function closeOpenedPopup() {
   if (popupOpened) {
     closePopup(popupOpened);
   }
-  return popupOpened;
 }
 
 function closePopupEsc(evt) {
   if (evt.key === "Escape") {
     closeOpenedPopup();
-    document.removeEventListener('keydown', closePopupEsc);
   }
 }
 
 function closePopupOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    const closedPopup = closeOpenedPopup();
-    if (closedPopup) {
-      closedPopup.removeEventListener('click', closePopupOverlay);
-    }
+    closeOpenedPopup();
   }
 }
 
@@ -124,7 +100,7 @@ function submitProfileForm(evt) {
 function openProfilePopup() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileProfession.textContent;
-  validateFormPopup(profilePopup);
+  validateFormPopup(settingsObj, profilePopup);
   openPopup(profilePopup);
 }
 
@@ -155,7 +131,7 @@ function createCard(name, link) {
 function openCardPopup() {
   titleInput.value = "";
   linkInput.value = "";
-  validateFormPopup(cardPopup);
+  validateFormPopup(settingsObj, cardPopup);
   openPopup(cardPopup);
 }
 

@@ -1,11 +1,4 @@
-const settingsObj = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__text',
-  submitButtonSelector: '.popup__submit-btn',
-  inactiveButtonClass: 'popup__submit-btn_inactive',
-  inputErrorClass: 'popup__text_type_error',
-  errorClass: 'popup__error_visible'
-};
+import { settingsObj } from "./settings.js";
 
 const showInputError = (settingsObj, formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -21,7 +14,7 @@ const hideInputError = (settingsObj, formElement, inputElement) => {
   errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (settingsObj, formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(settingsObj, formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -29,7 +22,7 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
-const validateFormPopup = (popupElement) => {
+export const validateFormPopup = (settingsObj, popupElement) => {
   const inputList = Array.from(popupElement.querySelectorAll(settingsObj.inputSelector));
   const buttonElement = popupElement.querySelector(settingsObj.submitButtonSelector);
   const formElement = popupElement.querySelector(settingsObj.formSelector);
@@ -46,7 +39,7 @@ const setEventListeners = (settingsObj, formElement) => {
   toggleButtonState(settingsObj, inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(settingsObj, formElement, inputElement);
       toggleButtonState(settingsObj, inputList, buttonElement);
     });
   });
