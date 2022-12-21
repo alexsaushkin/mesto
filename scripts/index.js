@@ -74,8 +74,7 @@ function handleEscClose() {
   document.addEventListener('keydown', closePopupEsc);
 }
 
-function handleOverlayClose() {
-  const popupOpened = document.querySelector('.popup_opened');
+function handleOverlayClose(popupOpened) {
   const overlay = popupOpened.closest('.popup');
   overlay.addEventListener('click', closePopupOverlay)
 }
@@ -83,7 +82,7 @@ function handleOverlayClose() {
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   handleEscClose();
-  handleOverlayClose();
+  handleOverlayClose(popup);
 }
 
 function updateProfile(name, profession) {
