@@ -1,7 +1,12 @@
+// попап картинки
+export const photoPopup = document.querySelector("#photo-popup");
+export const imageElement = photoPopup.querySelector(".popup__image");
+export const captionElement = photoPopup.querySelector(".popup__caption");
+export const buttonClosePhotoPopup = photoPopup.querySelector(".popup__close-btn");
+
 export function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener('keydown', closePopupEsc);
-  popup.removeEventListener('click', closePopupOverlay);
 }
 
 function findOpenedPopup() {
@@ -21,9 +26,9 @@ function closePopupEsc(evt) {
   }
 }
 
-function closePopupOverlay(evt) {
+export function closePopupOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    closeOpenedPopup();
+    closePopup(evt.currentTarget)
   }
 }
 
@@ -31,13 +36,7 @@ function handleEscClose() {
   document.addEventListener('keydown', closePopupEsc);
 }
 
-function handleOverlayClose(popupOpened) {
-  const overlay = popupOpened.closest('.popup');
-  overlay.addEventListener('click', closePopupOverlay)
-}
-
 export function openPopup(popup) {
   popup.classList.add("popup_opened");
   handleEscClose();
-  handleOverlayClose(popup);
 }
