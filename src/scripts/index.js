@@ -70,7 +70,7 @@ function openProfilePopup() {
   const infoData = userInfo.getUserInfo();
   nameInput.value = infoData.name;
   jobInput.value = infoData.about;
-  profileValidator.clearValidationErrors();
+  profileValidator.resetValidation();
   profilePopup.open();
 }
 
@@ -82,7 +82,7 @@ function submitCardForm(data) {
 function openCardPopup() {
   titleInput.value = "";
   linkInput.value = "";
-  cardValidator.clearValidationErrors();
+  cardValidator.resetValidation();
   cardPopup.open();
 }
 

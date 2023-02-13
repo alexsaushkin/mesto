@@ -50,7 +50,7 @@ export default class FormValidator {
     }
   }
 
-  clearValidationErrors() {
+  resetValidation() {
     this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
