@@ -10,12 +10,11 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardElement = document
+    return document
       .querySelector(this._templateSelector)
       .content
       .querySelector(".gallery__element")
       .cloneNode(true);
-    return cardElement;
   }
 
   _likeCard() {

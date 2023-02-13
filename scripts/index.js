@@ -1,5 +1,5 @@
-import { initialCards } from "./data.js";
-import { inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass} from "./settings.js"
+import {initialCards} from "./data.js";
+import {errorClass, inactiveButtonClass, inputErrorClass, inputSelector, submitButtonSelector} from "./settings.js"
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import PopupWithForm from "./components/PopupWithForm.js";
@@ -15,7 +15,7 @@ const gallery = document.querySelector(".gallery__items");
 // профиль
 const profileInfo = document.querySelector(".profile");
 const profileEditBtn = profileInfo.querySelector(".profile__edit-button");
-const cardAddBtn = profileInfo.querySelector(".profile__add-button")
+const cardAddBtn = profileInfo.querySelector(".profile__add-button");
 
 // попап профиля
 const profilePopupSelector = document.querySelector("#profile-popup");
@@ -33,7 +33,7 @@ const profilePopup = new PopupWithForm("#profile-popup", submitProfileForm);
 profilePopup.setEventListeners();
 
 function submitProfileForm(data) {
-  userInfo.setUserInfo(data)
+  userInfo.setUserInfo(data);
   profilePopup.close();
 }
 
@@ -48,7 +48,7 @@ function openProfilePopup() {
 const photoPopup = new PopupWithImage("#photo-popup");
 photoPopup.setEventListeners();
 
-const section = new Section({'items': initialCards, 'renderer': createCard}, gallery)
+const section = new Section({'items': initialCards, 'renderer': createCard}, gallery);
 section.renderElements();
 
 const cardPopup = new PopupWithForm("#card-popup", submitCardForm);
@@ -60,10 +60,22 @@ function submitCardForm(data) {
 }
 
 // добавление валидации форм
-const cardValidator = new FormValidator({ inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass}, cardPopupSelector);
+const cardValidator = new FormValidator({
+  inputSelector,
+  submitButtonSelector,
+  inactiveButtonClass,
+  inputErrorClass,
+  errorClass
+}, cardPopupSelector);
 cardValidator.enableValidation();
 
-const profileValidator = new FormValidator({ inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass}, profilePopupSelector);
+const profileValidator = new FormValidator({
+  inputSelector,
+  submitButtonSelector,
+  inactiveButtonClass,
+  inputErrorClass,
+  errorClass
+}, profilePopupSelector);
 profileValidator.enableValidation();
 
 
@@ -75,8 +87,7 @@ function openCardPopup() {
 }
 
 function createCard(data) {
-  const card = new Card(data, cardSelector, photoPopup.open.bind(photoPopup)).generateCard();
-  return card;
+  return new Card(data, cardSelector, photoPopup.open.bind(photoPopup)).generateCard();
 }
 
 // обработчики кнопок профиля
