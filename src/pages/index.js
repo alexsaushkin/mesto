@@ -1,12 +1,12 @@
-import '../pages/index.css';
-import {initialCards} from "./data.js";
-import {errorClass, inactiveButtonClass, inputErrorClass, inputSelector, submitButtonSelector} from "./settings.js"
-import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import Section from "./components/Section.js";
-import UserInfo from "./components/UserInfo.js";
+import './index.css';
+import {initialCards} from "./../scripts/data.js";
+import {errorClass, inactiveButtonClass, inputErrorClass, inputSelector, submitButtonSelector} from "./../scripts/settings"
+import Card from "./../scripts/components/Card.js";
+import FormValidator from "./../scripts/components/FormValidator.js";
+import PopupWithForm from "./../scripts/components/PopupWithForm.js";
+import PopupWithImage from "./../scripts/components/PopupWithImage.js";
+import Section from "./../scripts/components/Section.js";
+import UserInfo from "./../scripts/components/UserInfo.js";
 
 
 // карточка
