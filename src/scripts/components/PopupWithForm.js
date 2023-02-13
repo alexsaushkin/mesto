@@ -1,10 +1,11 @@
-import {formSelector, inputSelector} from "../settings.js"
+import { formSelector, inputSelector } from "../settings.js";
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
   constructor(templateSelector, handleSubmitForm) {
     super(templateSelector);
     this._handleSubmitForm = handleSubmitForm;
+    this._form = this._element.querySelector(formSelector);
   }
 
   _getInputValues() {
@@ -25,6 +26,6 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._element.querySelector(formSelector).reset();
+    this._form.reset();
   }
 }
