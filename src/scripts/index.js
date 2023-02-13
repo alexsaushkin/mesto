@@ -1,3 +1,4 @@
+import '../pages/index.css';
 import {initialCards} from "./data.js";
 import {errorClass, inactiveButtonClass, inputErrorClass, inputSelector, submitButtonSelector} from "./settings.js"
 import Card from "./components/Card.js";
@@ -32,19 +33,6 @@ const userInfo = new UserInfo({nameSelector: ".profile__name-value", aboutSelect
 const profilePopup = new PopupWithForm("#profile-popup", submitProfileForm);
 profilePopup.setEventListeners();
 
-function submitProfileForm(data) {
-  userInfo.setUserInfo(data);
-  profilePopup.close();
-}
-
-function openProfilePopup() {
-  const infoData = userInfo.getUserInfo();
-  nameInput.value = infoData.name;
-  jobInput.value = infoData.about;
-  profileValidator.clearValidationErrors();
-  profilePopup.open();
-}
-
 const photoPopup = new PopupWithImage("#photo-popup");
 photoPopup.setEventListeners();
 
@@ -53,11 +41,6 @@ section.renderElements();
 
 const cardPopup = new PopupWithForm("#card-popup", submitCardForm);
 cardPopup.setEventListeners();
-
-function submitCardForm(data) {
-  section.addItem(data);
-  cardPopup.close();
-}
 
 // добавление валидации форм
 const cardValidator = new FormValidator({
@@ -78,6 +61,23 @@ const profileValidator = new FormValidator({
 }, profilePopupSelector);
 profileValidator.enableValidation();
 
+function submitProfileForm(data) {
+  userInfo.setUserInfo(data);
+  profilePopup.close();
+}
+
+function openProfilePopup() {
+  const infoData = userInfo.getUserInfo();
+  nameInput.value = infoData.name;
+  jobInput.value = infoData.about;
+  profileValidator.clearValidationErrors();
+  profilePopup.open();
+}
+
+function submitCardForm(data) {
+  section.addItem(data);
+  cardPopup.close();
+}
 
 function openCardPopup() {
   titleInput.value = "";

@@ -2,7 +2,6 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
@@ -16,7 +15,7 @@
         <div class="profile__person">
           <img
             class="profile__image"
-            src="./images/сousteau.jpg"
+            src="<%=require('./images/сousteau.jpg')%>"
             alt="Жак-Ив Кусто"
           />
           <div class="profile__info">
@@ -125,6 +124,5 @@
         </div>
       </li>
     </template>
-    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
