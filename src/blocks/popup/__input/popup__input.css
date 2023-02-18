@@ -1,5 +1,5 @@
 .popup__input:first-of-type {
-  padding-top: 44px;
+  padding-top: 16px;
 }
 
 .popup__input:last-of-type {
@@ -8,6 +8,6 @@
 
 @media screen and (max-width: 568px) {
   .popup__input:first-of-type {
-    padding-top: 75px;
+    padding-top: 48px;
   }
 }

@@ -2,7 +2,7 @@ export default class Api{
   constructor(options) {
     this._baseUrl = options.baseUrl;
     this._headers = options.headers;
-    this._methodsWithBody = ['PATCH', 'POST', 'PUT']
+    this._methodsWithBody = ['PATCH', 'POST', 'PUT'];
   }
 
   _request(url, method = 'GET', params = {}) {
@@ -25,46 +25,46 @@ export default class Api{
     });
   }
 
-  _get(url, functionToDo, method = 'GET', params = {}, ) {
-    this._request(url, method, params)
+  _get(url, method = 'GET', params = {}, ) {
+    return this._request(url, method, params)
       .then(data => {
-        functionToDo(data);
+        return data;
       })
       .catch((err) => {
         console.log(err);
       })
   }
 
-  getProfile(functionToDo) {
-    this._get('users/me', functionToDo);
+  getProfile() {
+    return this._get('users/me');
   }
 
-  editProfile(functionToDo, params) {
-    this._get('users/me', functionToDo, 'PATCH', params);
+  editProfile(params) {
+    return this._get('users/me', 'PATCH', params);
   }
 
-  updateAvatar(functionToDo, params) {
-    this._get('users/me/avatar', functionToDo, 'PATCH', params);
+  updateAvatar(params) {
+    return this._get('users/me/avatar', 'PATCH', params);
   }
 
-  getInitialCards(functionToDo) {
-    this._get('cards', functionToDo);
+  getInitialCards() {
+    return this._get('cards');
   }
 
-  addNewCard(functionToDo, params) {
-    this._get('cards', functionToDo, 'POST', params);
+  addNewCard(params) {
+    return this._get('cards', 'POST', params);
   }
 
-  deleteCard(functionToDo, cardId) {
-    this._get(`cards/${cardId}`, functionToDo, 'DELETE');
+  deleteCard(cardId) {
+    return this._get(`cards/${cardId}`, 'DELETE');
   }
 
-  likeCard(functionToDo, cardId) {
-    this._get(`cards/${cardId}/likes`, functionToDo, 'PUT');
+  likeCard(cardId) {
+    return this._get(`cards/${cardId}/likes`, 'PUT');
   }
 
-  dislikeCard(functionToDo, cardId) {
-    this._get(`cards/${cardId}/likes`, functionToDo, 'DELETE');
+  dislikeCard(cardId) {
+   return this._get(`cards/${cardId}/likes`, 'DELETE');
   }
 
 }

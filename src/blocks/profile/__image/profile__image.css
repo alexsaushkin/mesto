@@ -3,12 +3,10 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 30px;
+  transition: opacity 0.3s ease-in;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 767px) {
-  .profile__image {
-    margin-right: 0;
-    margin-bottom: 26px;
-  }
+.profile__image:hover {
+  opacity: 0.2;
 }

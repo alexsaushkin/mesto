@@ -13,11 +13,13 @@
     <main class="content">
       <section class="profile">
         <div class="profile__person">
-          <img
-            class="profile__image"
-            src="<%=require('./images/сousteau.jpg')%>"
-            alt="Жак-Ив Кусто"
-          />
+          <div class="profile__image-block">
+            <img
+              class="profile__image"
+              src="<%=require('./images/сousteau.jpg')%>"
+              alt="Жак-Ив Кусто"
+            />
+          </div>
           <div class="profile__info">
             <div class="profile__name">
               <h1 class="profile__name-value">Жак-Ив Кусто</h1>
@@ -72,6 +74,27 @@
       </div>
     </section>
 
+    <section class="popup" id="avatar-popup">
+      <div class="popup__container">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="popup__form" name="edit-profile" novalidate>
+          <div class="popup__input">
+            <input
+              id="avatar-input"
+              name="avatar"
+              placeholder="Ссылка на аватар"
+              required
+              type="url"
+              class="popup__text popup__text_type_image-link"
+            />
+            <span class="popup__error avatar-input-error"></span>
+          </div>
+          <button class="popup__submit-btn" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__close-btn" type="button"></button>
+      </div>
+    </section>
+
     <section class="popup" id="card-popup">
       <div class="popup__container">
         <h3 class="popup__title">Новое место</h3>
@@ -106,6 +129,16 @@
       </div>
     </section>
 
+    <section class="popup" id="confirm-popup">
+      <div class="popup__container">
+        <h3 class="popup__title">Вы уверены?</h3>
+        <form class="popup__form" name="confirm-form" novalidate>
+          <button class="popup__submit-btn" type="submit">Да</button>
+        </form>
+        <button class="popup__close-btn" type="button"></button>
+      </div>
+    </section>
+
     <section class="popup popup_dark" id="photo-popup">
       <figure class="popup__image-block">
         <img class="popup__image" />
@@ -120,7 +153,10 @@
         <button class="gallery__delete" type="button"></button>
         <div class="gallery__info">
           <h2 class="gallery__title"></h2>
-          <button class="gallery__like" type="button"></button>
+          <div class="gallery__like-block">
+            <button class="gallery__like" type="button"></button>
+            <span class="gallery__like-counter"></span>
+          </div>
         </div>
       </li>
     </template>
