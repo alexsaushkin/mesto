@@ -13,6 +13,7 @@ export default class Card {
     this._likeCounter = this._element.querySelector(".gallery__like-counter");
     this._cardPhotoElement = this._element.querySelector(".gallery__photo");
     this._deleteBtn = this._element.querySelector(".gallery__delete");
+    this._elementTitle = this._element.querySelector(".gallery__title");
     this._handleCardClick = handleCardClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
@@ -59,19 +60,7 @@ export default class Card {
     this._handleDeleteClick(this._id, this);
   }
 
-  generateCard() {
-    this._cardPhotoElement.src = this._link;
-    this._cardPhotoElement.alt = this._name;
-    this._likeCounter.textContent = this._likes.length;
-
-    this._element.querySelector(".gallery__title").textContent = this._name;
-
-    if (this._isLiked) {
-      this.like();
-    } else {
-      this.dislike();
-    }
-
+  _setEventListeners() {
     this._buttonLike.addEventListener("click", () => {
       if (this._isLiked) {
         this._handleDislikeClick(this);
@@ -91,6 +80,22 @@ export default class Card {
     this._cardPhotoElement.addEventListener("click", () => {
       this._handleCardClick(this._link, this._name);
     });
+  }
+
+  generateCard() {
+    this._cardPhotoElement.src = this._link;
+    this._cardPhotoElement.alt = this._name;
+    this._likeCounter.textContent = this._likes.length;
+
+    this._elementTitle.textContent = this._name;
+
+    if (this._isLiked) {
+      this.like();
+    } else {
+      this.dislike();
+    }
+
+    this._setEventListeners();
 
     return this._element;
   }

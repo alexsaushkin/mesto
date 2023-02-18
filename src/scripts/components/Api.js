@@ -30,9 +30,6 @@ export default class Api{
       .then(data => {
         return data;
       })
-      .catch((err) => {
-        console.log(err);
-      })
   }
 
   getProfile() {
