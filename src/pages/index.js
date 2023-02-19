@@ -152,17 +152,23 @@ function createCard(data) {
       confirmCardDeletePopup.open(cardId, card);
     },
     (card) => {
-      api.likeCard(data._id)
+      return api.likeCard(data._id)
         .then(res => {
           card.like();
           card.updateLikes(res.likes);
         })
+        .catch(err => {
+          console.log(err);
+        })
     },
     (card) => {
-      api.dislikeCard(data._id)
+      return api.dislikeCard(data._id)
         .then(res => {
           card.dislike();
           card.updateLikes(res.likes);
+        })
+        .catch(err => {
+          console.log(err);
         })
     }
     ).generateCard();
